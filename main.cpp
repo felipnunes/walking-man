@@ -5,7 +5,7 @@ void check_controls(sf::Sprite *sprite, float *actual_sprite, sf::IntRect *rect)
 const int movement = 4;
 int main() {
 
-    sf::RenderWindow window(sf::VideoMode(500,500), "walking_man");
+    sf::RenderWindow window(sf::VideoMode(1920,1080), "walking_man");
     window.setFramerateLimit(60);
 
     sf::IntRect rect(0,0,96,160);
@@ -48,7 +48,7 @@ void check_controls(sf::Sprite *sprite,float *actual_sprite, sf::IntRect *rect) 
             sprite->setTextureRect(sf::IntRect(0, 3 * 160,96,160));
         }
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         sprite->move(-movement, 0);
         *actual_sprite += 0.2;
         sprite->setTextureRect(sf::IntRect(0 + 96 *((int) *actual_sprite),160,96,160));
@@ -57,7 +57,7 @@ void check_controls(sf::Sprite *sprite,float *actual_sprite, sf::IntRect *rect) 
             sprite->setTextureRect(sf::IntRect(0,0,96,160));
         }
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         sprite->move(0, movement);
         *actual_sprite += 0.2;
         sprite->setTextureRect(sf::IntRect(0 + 96 *((int) *actual_sprite),0,96,160));
@@ -66,10 +66,10 @@ void check_controls(sf::Sprite *sprite,float *actual_sprite, sf::IntRect *rect) 
             sprite->setTextureRect(sf::IntRect(0,0,96,160));
         }
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         sprite->move(movement, 0);
         *actual_sprite += 0.2;
-        sprite->setTextureRect(sf::IntRect(0 + 96 *((int) *actual_sprite),2 * 160,96,160));
+        sprite->setTextureRect(sf::IntRect(0 + 96 *((int) *actual_sprite),2 * 160,93,160));
         if(*actual_sprite >= 12) {
             *actual_sprite = 0;
             sprite->setTextureRect(sf::IntRect(0,0,96,160));
